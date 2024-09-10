@@ -4,8 +4,8 @@ import * as THREE from "three";
 
 
 export const TextSection = ({ title, subtitle, textWidth=5, image, imagePosition,imgargs, ...props }) => {
-  console.log(imagePosition)
-  console.log(props.position)
+  // console.log(imagePosition)
+  // console.log(props.position)
   return (
     <group {...props}>
       {!!title && (

@@ -9,7 +9,7 @@ import { fadeOnBeforeCompile } from "../utils/fadeMaterial";
 import { Airplane } from "./Airplane";
 import { Background } from "./Background";
 import { Cloud } from "./Cloud";
-import { Speed } from "./Speed";
+// import { Speed } from "./Speed";
 import { TextSection } from "./TextSection";
 
 const LINE_NB_POINTS = 1000;
@@ -175,15 +175,6 @@ A bilingual React Native app was developed for both iOS and Android platforms. I
       {
         position: new Vector3(3.5, -2, -10),
       },
-      {
-        scale: new Vector3(4, 3, 2),
-        position: new Vector3(-18, 0.2, -68),
-        rotation: new Euler(-Math.PI / 5, Math.PI / 6, 0),
-      },
-      {
-        scale: new Vector3(2.5, 2.5, 2.5),
-        position: new Vector3(10, 5, -52),
-      },
       // FIRST POINT
       {
         scale: new Vector3(4, 4, 4),
@@ -193,15 +184,7 @@ A bilingual React Native app was developed for both iOS and Android platforms. I
           curvePoints[1].z + 64
         ),
       },
-      {
-        scale: new Vector3(3, 3, 3),
-        position: new Vector3(
-          curvePoints[1].x - 20,
-          curvePoints[1].y + 4,
-          curvePoints[1].z + 28
-        ),
-        rotation: new Euler(0, Math.PI / 7, 0),
-      },
+    
       {
         rotation: new Euler(0, Math.PI / 7, Math.PI / 5),
         scale: new Vector3(5, 5, 5),
@@ -263,15 +246,7 @@ A bilingual React Native app was developed for both iOS and Android platforms. I
           curvePoints[3].z + 50
         ),
       },
-      {
-        scale: new Vector3(3, 3, 3),
-        position: new Vector3(
-          curvePoints[3].x - 10,
-          curvePoints[3].y,
-          curvePoints[3].z + 30
-        ),
-        rotation: new Euler(Math.PI / 4, 0, Math.PI / 5),
-      },
+    
       {
         scale: new Vector3(4, 4, 4),
         position: new Vector3(
@@ -589,6 +564,7 @@ A bilingual React Native app was developed for both iOS and Android platforms. I
               position={[0, 0, 5]}
               fov={30}
               makeDefault
+              frustumCulled={true}
             />
           </group>
           <group ref={airplane}>
@@ -599,13 +575,14 @@ A bilingual React Native app was developed for both iOS and Android platforms. I
                 scale={2.5}
                 position-y={-0.5}
                 position-z={.8}
+                frustumCulled={true}
               />
             </Float>
           </group>
         </group>
         {/* TEXT */}
         {textSections.map((textSection, index) => (
-          <TextSection {...textSection} key={index} />
+          <TextSection {...textSection} key={index} frustumCulled={true} />
         ))}
 
         {/* LINE */}
